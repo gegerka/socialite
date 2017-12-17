@@ -47,5 +47,21 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function redirectToProvider(string $provider = null)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
 
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback(SocialAccountService $service, $provider)
+    {
+        $userSocial = Socialite::driver($provider);
+        $user = $service->createOrGetUser($userSocial, $provider);
+        Auth::login($user, true);
+        return redirect()->action('HomeController@index');
+    }
 }

@@ -35,6 +35,22 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '1742215972475592',         // Your facebook Client ID
+        'client_secret' => '4095b6cd88524c47ccc978d7626aa42b', // Your facebook Client Secret
+        'redirect' => 'http://localhost:8000/login/facebook/callback',
+    ],
 
+    'twitter' => [
+        'client_id' => 'C3YFkxrCpgVkI3H0dkQgiHjYx',         // Your facebook Client ID
+        'client_secret' => 'RMivKAp1p5zoY8w8HPkSsCAsZ1HchS0jSIGILilTnc1jthgid9', // Your facebook Client Secret
+        'redirect' => 'http://localhost:8000/login/twitter/callback',
+    ],
+
+//    'vkontakte' => [
+//        'client_id' => env('VKONTAKTE_KEY'),
+//        'client_secret' => env('VKONTAKTE_SECRET'),
+//        'redirect' => env('VKONTAKTE_REDIRECT_URI'),
+//    ],
 
 ];

@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider')
+    -> where('provider', 'facebook|google|twitter');
 
+Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback')
+    -> where('provider', 'facebook|google|twitter');
 
 Auth::routes();
 
